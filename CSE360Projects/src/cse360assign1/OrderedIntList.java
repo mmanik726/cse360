@@ -92,8 +92,8 @@ public class OrderedIntList
     private void grow()
     {
         int[] tempArray = new int[count * 2];
-        for (int i = 0; i < count; i++)
-            tempArray[i] = intArray[i];
+        for (int index = 0; index < count; index++)
+            tempArray[index] = intArray[index];
         intArray = tempArray;
     }
 
