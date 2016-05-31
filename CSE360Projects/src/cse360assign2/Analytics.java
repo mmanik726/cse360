@@ -6,7 +6,7 @@ public class Analytics extends OrderedIntList{
 	public float mean()
 	{
 		
-		if(intArray.length == 0)
+		if(count == 0)
 		{
 			return -1;
 		}
@@ -31,7 +31,7 @@ public class Analytics extends OrderedIntList{
 	
 	public int median()
 	{
-		if(intArray.length == 0)
+		if(count == 0)
 		{
 			return -1;
 		}
@@ -43,7 +43,7 @@ public class Analytics extends OrderedIntList{
 	
 	public int high()
 	{
-		if(intArray.length == 0)
+		if(count == 0)
 		{
 			return -1;
 		}
@@ -54,7 +54,7 @@ public class Analytics extends OrderedIntList{
 	}
 	public int low()
 	{
-		if(intArray.length == 0)
+		if(count == 0)
 		{
 			return -1;
 		}
@@ -65,7 +65,7 @@ public class Analytics extends OrderedIntList{
 	}
 	public int numInts()
 	{
-		if(intArray.length == 0)
+		if(count == 0)
 		{
 			return -1;
 		}
