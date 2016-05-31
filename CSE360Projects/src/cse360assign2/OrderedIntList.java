@@ -12,11 +12,13 @@ public class OrderedIntList
 {
     protected int[] intArray;
     protected int count;
-
+    private boolean debug; 
+    
     OrderedIntList()
     {
         intArray = new int[10];
         count = 0;
+	    debug = false;
     }
 
 
@@ -27,10 +29,8 @@ public class OrderedIntList
 
     public void insert(int inputNum)
     {
-
         //grow the size of the array by twice the current size if element no more room for new element
         if (count == intArray.length) grow();
-
         //add the first element if list is empty at the beginning
         if (count == 0)
         {
@@ -38,24 +38,19 @@ public class OrderedIntList
             count++;
         } else {
             //if the list is not empty
-
             int indexOne = 0;
-
             //boolean var to indicate if element has already been inserted into list
             boolean inserted = false;
-
-
+            
             //loop while counter is less than element count and array size and element not yet inserted
             while (indexOne < count && indexOne < intArray.length && inserted == false)
             {
-
                 if (inputNum < intArray[indexOne])
                 {
                     int tempValue = intArray[indexOne];
                     //insert the new element
                     intArray[indexOne] = inputNum;
-
-
+                    
                     //shift elements to the right, starting from the very end of the array
                     for (int indexTwo = intArray.length - 1; indexTwo > indexOne; indexTwo--)
                     {
@@ -70,9 +65,8 @@ public class OrderedIntList
 
                     inserted = true;
                 }
-
+                
                 indexOne++;
-
             }
 
             //if item is not inserted and whole array has been traversed, the item must be the greatest. add to end
@@ -82,8 +76,6 @@ public class OrderedIntList
             //increment count if not already greater than the length of array
             if (count < intArray.length)
                 count++;
-
-
         }
     }
 
@@ -98,28 +90,21 @@ public class OrderedIntList
         intArray = tempArray;
     }
 
-
     /**
      * this method prints the array in orders of 5 in each line seperated by tab
      */
-
     public void print()
     {
-
         //if there are elements in list
         if (count > 0)
             System.out.print(intArray[0] + "\t");
 
         for (int index = 1; index < count; index++)
         {
-
             if (index % 5 == 0)
                 System.out.println();
-
             System.out.print(intArray[index] + "\t");
-
         }
-        
         System.out.println();
     }
 }
