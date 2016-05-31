@@ -119,5 +119,7 @@ public class OrderedIntList
             System.out.print(intArray[index] + "\t");
 
         }
+        
+        System.out.println();
     }
 }

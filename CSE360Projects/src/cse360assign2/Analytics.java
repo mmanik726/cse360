@@ -3,7 +3,7 @@ package cse360assign2;
 public class Analytics extends OrderedIntList{
 
 	
-	public int mean()
+	public float mean()
 	{
 		
 		if(intArray.length == 0)
@@ -12,16 +12,17 @@ public class Analytics extends OrderedIntList{
 		}
 		else
 		{
+			//float totalCount = intArray.length;
 			
-			int mean = 0;
-			int sum = 0; 
+			float mean = 0;
+			float sum = 0; 
 			
-			for (int i = 0; i < intArray.length; i++)
+			for (int i = 0; i < count; i++)
 			{
 				sum = sum + intArray[i];
 			}
 			
-			mean = sum / intArray.length;
+			mean = sum / count;
 			
 			return mean;
 				
@@ -36,9 +37,10 @@ public class Analytics extends OrderedIntList{
 		}
 		else
 		{
-			return intArray[(int)Math.floor(intArray.length / 2)];				
+			return intArray[count / 2];				
 		}
 	}
+	
 	public int high()
 	{
 		if(intArray.length == 0)
@@ -47,7 +49,7 @@ public class Analytics extends OrderedIntList{
 		}
 		else
 		{
-			return intArray[(intArray.length -1)];				
+			return intArray[count-1];				
 		}
 	}
 	public int low()
@@ -69,7 +71,7 @@ public class Analytics extends OrderedIntList{
 		}
 		else
 		{
-			return intArray.length;				
+			return count;				
 		}
 	}
 	
