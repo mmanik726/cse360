@@ -1,4 +1,5 @@
-package cse360assign1;
+package cse360assign2;
+
 
 /**
  * Ordered list of numbers. List size may grow depending on the number of items to insert
