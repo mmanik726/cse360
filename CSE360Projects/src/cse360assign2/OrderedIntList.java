@@ -10,8 +10,8 @@ package cse360assign2;
 
 public class OrderedIntList
 {
-    private int[] intArray;
-    private int count;
+    protected int[] intArray;
+    protected int count;
 
     OrderedIntList()
     {
@@ -90,7 +90,7 @@ public class OrderedIntList
     /**
      * this method increases the size of the array by twice and copies over the existing values
      */
-    private void grow()
+    protected void grow()
     {
         int[] tempArray = new int[count * 2];
         for (int index = 0; index < count; index++)
