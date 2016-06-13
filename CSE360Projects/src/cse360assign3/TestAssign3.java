@@ -7,7 +7,7 @@ public class TestAssign3 {
 	
 		Assign3 testing =  new Assign3();
 		
-		testing.readInt();
+		testing.readAndShowInt();
 		
 		
 		
