@@ -22,7 +22,7 @@ public class Assign3 {
 		int repeats = -1;
 		
 		//get the number of repeats (must be from 1 to 5)
-		while(repeats < 0 || repeats > 5)
+		while(repeats <= 0 || repeats > 5)
 		{
 			System.out.println("Please enter number of repeats (1 to 5 only)");
 			repeats = scanner.nextInt();
@@ -35,13 +35,13 @@ public class Assign3 {
 			
 			int curScannerInt;
 			
-			
+			myInts.clear(); //clear the list for every iteration
 			//while the input is not 0
 			do
 			{
 				System.out.println("Please enter a interger, 0 to stop");
 				curScannerInt = scanner.nextInt();
-				if (curScannerInt > 0)
+				if (curScannerInt != 0)
 					myInts.add(curScannerInt);
 			}while(curScannerInt != 0);
 			
@@ -52,7 +52,7 @@ public class Assign3 {
 			}else //display the min and max from the current list
 			{
 				System.out.println("\nMax:" + Collections.max(myInts));
-				System.out.println("\nMin:" + Collections.min(myInts));
+				System.out.println("\nMin:" + Collections.min(myInts,null));
 			}	
 			
 		}
