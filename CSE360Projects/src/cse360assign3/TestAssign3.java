@@ -9,7 +9,8 @@ public class TestAssign3 {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-	
+		
+		//test git repo
 		Assign3 testing =  new Assign3();
 		
 		testing.readAndShowInt();
