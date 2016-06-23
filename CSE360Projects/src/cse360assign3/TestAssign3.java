@@ -11,6 +11,8 @@ public class TestAssign3 {
 		// TODO Auto-generated method stub
 		
 		//test git repo
+		//hello there
+		
 		Assign3 testing =  new Assign3();
 		
 		testing.readAndShowInt();
