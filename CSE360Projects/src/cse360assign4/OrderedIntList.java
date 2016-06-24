@@ -1,7 +1,7 @@
 package cse360assign4;
 
 /**
- * Ordered list of numbers. List size may grow depending on the number of items to insert
+ * New Ordered list of numbers with additional methods
  * @author Mohammed Manik (pin: 34)
  * @version 1.0
  */
@@ -35,19 +35,30 @@ public class OrderedIntList
     private int[] intArray;
     private int count;
 
+    /*
+     * original constructor
+     */
+    OrderedIntList()
+    {
+        intArray = new int[10];
+        count = 0;
+    }
+    
+    
+
+    /*
+     * overloaded constructor with size parameter
+     */
     OrderedIntList(int size) //constructor now accepts param of size
     {
         intArray = new int[size]; //capacity of list
         count = 0;
     }
 
-
     /**
-     *
-     * @param inputNum the number to enter into the list. The number gets placed in ascending order. duplicates allowed
-     */
-
-    
+    *
+    * returns the length of the list, i.e the actual element count and not total capacity
+    */
     private int length()
     {
     	//TODO:
@@ -58,13 +69,20 @@ public class OrderedIntList
     }
     
     
+    /**
+    *performs a binary search of the list for an item
+    * @param key The number to search for from the list.
+    */
     public int search(int key)
     {
     	//return binSearchList(key, 0, intArray.length - 1);
     	return binSearchList(key, 0, count - 1);
     }
     
-    
+    /**
+    *
+    * private helper method for the binary search algorithm
+    */
     private int binSearchList(int key, int low, int high)
     {
     	//implements recursive binary search of list
@@ -80,16 +98,19 @@ public class OrderedIntList
     	if(key < intArray[mid])
     	{
     		return binSearchList(key, low, mid -1 );
-    	}else if (key > intArray[mid]) 
-    	{
+    	}else if (key > intArray[mid]){
     		return binSearchList(key, mid + 1, high);
-    	}else
-    	{
+    	}else{
     		//return intArray[mid];
     		return mid; //return index of the element found in array
     	}
     }
     
+    
+    /**
+    *
+    * @param key The number to be deleted from the list.
+    */
     public void delete(int key)
     {
     	//search for item in the list first
@@ -107,15 +128,16 @@ public class OrderedIntList
     			intArray[index] = temp;
     		}
     		count--; //reduce count of elements
-    	}
-    	else
-    	{
+    	}else{
     		System.out.println("Item not found in list for deletion");
     	}
     }
     
     
-    
+    /**
+    *
+    * @param inputNum the number to be inserted into the list. The number gets placed in ascending order. duplicates NOT allowed
+    */
     public void insert(int inputNum)
     {
     	//TODO: 
@@ -133,7 +155,7 @@ public class OrderedIntList
         {
             intArray[0] = inputNum;
             count++;
-        } else {
+        }else{
             //if the list is not empty
 
         	int indexOne = 0;
@@ -176,12 +198,15 @@ public class OrderedIntList
     }
 
 
-    
+    /**
+    *
+    * toString method to return the output as string
+    */
     public String toString()
     {
     	//TODO:
     	//The format of the String returned must be the integers 
-    	//in the array separated by a space as in “1 2 3 4”. 
+    	//in the array separated by a space as in â€œ1 2 3 4â€�. 
     	//There should be no space after the last integer.
     	//An empty array should yield an empty String, not a null value.
     	
@@ -192,8 +217,7 @@ public class OrderedIntList
     		if (index == count - 1)
     		{
     			output = output + intArray[index];
-    		}else
-    		{
+    		}else{
     			output = output + intArray[index] + " ";
     		}
     	}
