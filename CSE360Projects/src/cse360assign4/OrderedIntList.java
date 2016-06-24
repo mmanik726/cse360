@@ -54,7 +54,14 @@ public class OrderedIntList
     	//i. The size is determined by the number of elements in the list, not the size of the array.
     	//ii. The method must have the following signature.
     	//public int length ()
-    	return -1;
+    	return count;
+    }
+    
+    
+    public int search(int key)
+    {
+    	//return binSearchList(key, 0, intArray.length - 1);
+    	return binSearchList(key, 0, count - 1);
     }
     
     
@@ -65,34 +72,46 @@ public class OrderedIntList
     	//In this case, multiple returns from the method are acceptable.
     	//If the key is not in the array, then the method should return -1, not throw an exception.
     	
-    	//int median = sizeOfArray / 2;
-    	
     	if (low > high)
     		return -1;
     	
     	int mid = (low + high) / 2;
     	
-    	
     	if(key < intArray[mid])
     	{
-    		return binSearchList(key, low, mid);
-    		
+    		return binSearchList(key, low, mid -1 );
     	}else if (key > intArray[mid]) 
     	{
-    		return binSearchList(key, mid, high);
+    		return binSearchList(key, mid + 1, high);
     	}else
     	{
-    		return intArray[mid];
+    		//return intArray[mid];
+    		return mid; //return index of the element found in array
     	}
-    	
-    
     }
     
-    private void delete(int key)
+    public void delete(int key)
     {
     	//search for item in the list first
-    	//delete item if eixsts and move all other items up the list to fill void
+    	//delete item if exists and move all other items up the list to fill void
     	//"size of array (total capacity) will not change" 
+    	
+    	int foundIndex = search(key); //first search for item
+
+    	if (foundIndex != -1) //item found
+    	{
+    		//delete, shift left  
+    		for (int index = foundIndex; index < count; index++ )
+    		{
+    			int temp = intArray[index + 1];
+    			intArray[index] = temp;
+    		}
+    		count--; //reduce count of elements
+    	}
+    	else
+    	{
+    		System.out.println("Item not found in list for deletion");
+    	}
     }
     
     
@@ -105,6 +124,9 @@ public class OrderedIntList
     	//if list is full, insert new (if not duplicate), but drop last item
     	//"size of array (total capacity) will not change" 
 
+    	//duplicates are not allowed. Insert only if item is not found in list
+    	if (search(inputNum) != -1)
+    		return;
        
         //add the first element if list is empty at the beginning
         if (count == 0)
@@ -114,40 +136,33 @@ public class OrderedIntList
         } else {
             //if the list is not empty
 
-            int indexOne = 0;
+        	int indexOne = 0;
 
-            //boolean var to indicate if element has already been inserted into list
+        	//boolean var to indicate if element has already been inserted into list
             boolean inserted = false;
-
 
             //loop while counter is less than element count and array size and element not yet inserted
             while (indexOne < count && indexOne < intArray.length && inserted == false)
             {
-
                 if (inputNum < intArray[indexOne])
                 {
                     int tempValue = intArray[indexOne];
+                    
                     //insert the new element
                     intArray[indexOne] = inputNum;
-
-
+                    
                     //shift elements to the right, starting from the very end of the array
                     for (int indexTwo = intArray.length - 1; indexTwo > indexOne; indexTwo--)
                     {
                         int tempValueTwo = intArray[indexTwo];
-
                         if (indexTwo + 1 < intArray.length)
                             intArray[indexTwo + 1] = tempValueTwo;
                     }
-
                     if (indexOne + 1 < intArray.length)
                         intArray[indexOne + 1] = tempValue;
-
                     inserted = true;
                 }
-
                 indexOne++;
-
             }
 
             //if item is not inserted and whole array has been traversed, the item must be the greatest. add to end
@@ -157,8 +172,6 @@ public class OrderedIntList
             //increment count if not already greater than the length of array
             if (count < intArray.length)
                 count++;
-
-
         }
     }
 
@@ -172,30 +185,22 @@ public class OrderedIntList
     	//There should be no space after the last integer.
     	//An empty array should yield an empty String, not a null value.
     	
-    	return "";
+    	String output = "";
+
+    	for(int index = 0; index < count; index++)
+    	{
+    		if (index == count - 1)
+    		{
+    			output = output + intArray[index];
+    		}else
+    		{
+    			output = output + intArray[index] + " ";
+    		}
+    	}
+    	
+    	return output;
     }
     
     
     
-    
-    /**
-     * this method prints the array in orders of 5 in each line seperated by tab
-     */
-    public void print()
-    {
-
-        //if there are elements in list
-        if (count > 0)
-            System.out.print(intArray[0] + "\t");
-
-        for (int index = 1; index < count; index++)
-        {
-
-            if (index % 5 == 0)
-                System.out.println();
-
-            System.out.print(intArray[index] + "\t");
-
-        }
-    }
 }
