@@ -37,7 +37,7 @@ public class OrderedIntList
 
     OrderedIntList(int size) //constructor now accepts param of size
     {
-        intArray = new int[10];
+        intArray = new int[size]; //capacity of list
         count = 0;
     }
 
@@ -58,14 +58,34 @@ public class OrderedIntList
     }
     
     
-    private int binSearchList()
+    private int binSearchList(int key, int low, int high)
     {
     	//implements recursive binary search of list
     	//This must be a recursive implementation of the binary search.
     	//In this case, multiple returns from the method are acceptable.
     	//If the key is not in the array, then the method should return -1, not throw an exception.
-
-    	return -1;
+    	
+    	//int median = sizeOfArray / 2;
+    	
+    	if (low > high)
+    		return -1;
+    	
+    	int mid = (low + high) / 2;
+    	
+    	
+    	if(key < intArray[mid])
+    	{
+    		return binSearchList(key, low, mid);
+    		
+    	}else if (key > intArray[mid]) 
+    	{
+    		return binSearchList(key, mid, high);
+    	}else
+    	{
+    		return intArray[mid];
+    	}
+    	
+    
     }
     
     private void delete(int key)
