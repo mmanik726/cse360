@@ -7,12 +7,35 @@ package cse360assign4;
  */
 
 
+
+
+
+//TODO:
+//3. Generate the initial set of junit test cases. All should have the default of fail.
+//4. Complete the code for your test cases. Create new methods as needed for the tests. Your
+//tests should not have any if statements, loops or output. Use the asserts to check the results.
+//Thoroughly test your code.
+//5. Make sure that all the code meets all coding and documentation standards. The junit test
+//cases should include internal documentation while the OrderedIntList.java file should contain
+//external documentation.
+//6. Submit the following files for grading
+//	a. Your documented OrderedIntListTest.java file.
+//	b. Your documented OrderedIntList.java file.
+
+
+
+
+
+
+
+
+
 public class OrderedIntList
 {
     private int[] intArray;
     private int count;
 
-    OrderedIntList()
+    OrderedIntList(int size) //constructor now accepts param of size
     {
         intArray = new int[10];
         count = 0;
@@ -24,12 +47,45 @@ public class OrderedIntList
      * @param inputNum the number to enter into the list. The number gets placed in ascending order. duplicates allowed
      */
 
+    
+    private int length()
+    {
+    	//TODO:
+    	//i. The size is determined by the number of elements in the list, not the size of the array.
+    	//ii. The method must have the following signature.
+    	//public int length ()
+    	return -1;
+    }
+    
+    
+    private int binSearchList()
+    {
+    	//implements recursive binary search of list
+    	//This must be a recursive implementation of the binary search.
+    	//In this case, multiple returns from the method are acceptable.
+    	//If the key is not in the array, then the method should return -1, not throw an exception.
+
+    	return -1;
+    }
+    
+    private void delete(int key)
+    {
+    	//search for item in the list first
+    	//delete item if eixsts and move all other items up the list to fill void
+    	//"size of array (total capacity) will not change" 
+    }
+    
+    
+    
     public void insert(int inputNum)
     {
+    	//TODO: 
+    	//insert should continue to insert in ascending order
+    	//duplicates not allowed in list
+    	//if list is full, insert new (if not duplicate), but drop last item
+    	//"size of array (total capacity) will not change" 
 
-        //grow the size of the array by twice the current size if element no more room for new element
-        if (count == intArray.length) grow();
-
+       
         //add the first element if list is empty at the beginning
         if (count == 0)
         {
@@ -86,22 +142,25 @@ public class OrderedIntList
         }
     }
 
-    /**
-     * this method increases the size of the array by twice and copies over the existing values
-     */
-    private void grow()
+
+    
+    public String toString()
     {
-        int[] tempArray = new int[count * 2];
-        for (int index = 0; index < count; index++)
-            tempArray[index] = intArray[index];
-        intArray = tempArray;
+    	//TODO:
+    	//The format of the String returned must be the integers 
+    	//in the array separated by a space as in “1 2 3 4”. 
+    	//There should be no space after the last integer.
+    	//An empty array should yield an empty String, not a null value.
+    	
+    	return "";
     }
-
-
+    
+    
+    
+    
     /**
      * this method prints the array in orders of 5 in each line seperated by tab
      */
-
     public void print()
     {
 
