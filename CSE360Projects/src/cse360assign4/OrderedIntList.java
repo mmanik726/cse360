@@ -6,11 +6,7 @@ package cse360assign4;
  * @version 1.0
  */
 
-
-
-
-
-//TODO:
+//TODO: done
 //3. Generate the initial set of junit test cases. All should have the default of fail.
 //4. Complete the code for your test cases. Create new methods as needed for the tests. Your
 //tests should not have any if statements, loops or output. Use the asserts to check the results.
@@ -22,32 +18,23 @@ package cse360assign4;
 //	a. Your documented OrderedIntListTest.java file.
 //	b. Your documented OrderedIntList.java file.
 
-
-
-
-
-
-
-
-
 public class OrderedIntList
 {
     private int[] intArray;
     private int count;
 
     /*
-     * original constructor
+     * original constructor with no parameter 
      */
     OrderedIntList()
     {
         intArray = new int[10];
         count = 0;
     }
-    
-    
 
     /*
      * overloaded constructor with size parameter
+     * @param size capacity of the array
      */
     OrderedIntList(int size) //constructor now accepts param of size
     {
@@ -59,15 +46,14 @@ public class OrderedIntList
     *
     * returns the length of the list, i.e the actual element count and not total capacity
     */
-    private int length()
+    public int length()
     {
-    	//TODO:
+    	//TODO: done
     	//i. The size is determined by the number of elements in the list, not the size of the array.
     	//ii. The method must have the following signature.
     	//public int length ()
     	return count;
     }
-    
     
     /**
     *performs a binary search of the list for an item
@@ -85,6 +71,7 @@ public class OrderedIntList
     */
     private int binSearchList(int key, int low, int high)
     {
+    	//TODO: done
     	//implements recursive binary search of list
     	//This must be a recursive implementation of the binary search.
     	//In this case, multiple returns from the method are acceptable.
@@ -109,10 +96,11 @@ public class OrderedIntList
     
     /**
     *
-    * @param key The number to be deleted from the list.
+    * @param key The item to be deleted from the list.
     */
     public void delete(int key)
     {
+    	//TODO: done
     	//search for item in the list first
     	//delete item if exists and move all other items up the list to fill void
     	//"size of array (total capacity) will not change" 
@@ -129,7 +117,7 @@ public class OrderedIntList
     		}
     		count--; //reduce count of elements
     	}else{
-    		System.out.println("Item not found in list for deletion");
+    		//System.out.println("Item not found in list for deletion");
     	}
     }
     
@@ -140,7 +128,7 @@ public class OrderedIntList
     */
     public void insert(int inputNum)
     {
-    	//TODO: 
+    	//TODO: done
     	//insert should continue to insert in ascending order
     	//duplicates not allowed in list
     	//if list is full, insert new (if not duplicate), but drop last item
@@ -204,7 +192,7 @@ public class OrderedIntList
     */
     public String toString()
     {
-    	//TODO:
+    	//TODO:done 
     	//The format of the String returned must be the integers 
     	//in the array separated by a space as in â€œ1 2 3 4â€�. 
     	//There should be no space after the last integer.
